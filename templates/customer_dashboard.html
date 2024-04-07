@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .btn-group {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+
+<div class="container">
+    <h2>Customer Dashboard</h2>
+    <div class="btn-group" role="group" aria-label="Service Requests">
+        <a href="{{url_for('service_request')}}"><button type="button" class="btn btn-warning">Ask service request</button></a>
+        <a href="{{url_for('view_requests')}}"><button type="button" class="btn btn-warning">view his requests</button></a>
+        <a href="{{url_for('clogout')}}"><button type="button" class="btn btn-warning">logout</button></a>
+    </div>
+    <!-- Add additional content here -->
+</div>
+
+</body>
+</html>

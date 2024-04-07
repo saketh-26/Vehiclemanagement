@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Messages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url('data:image/jpeg;base64,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'); /* Add your background image path here */
+            background-size: cover;
+            background-position: center;
+            color: rgb(8, 8, 8); /* Change text color for better visibility */
+        }
+
+        h1 {
+            background-color:white ;
+            text-align: center;
+            margin-top: 50px;
+            background-size: 40%;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            border-bottom: 1px solid rgb(11, 10, 10);
+        }
+
+        th {
+            background-color: rgba(0, 0, 0, 0.5); /* Adjust background color opacity */
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(227, 213, 213, 0.1); /* Adjust background color opacity */
+        }
+    </style>
+</head>
+<body>
+    <h1 >Contact Messages</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for message in messages %}
+            <tr>
+                <td>{{ message[1] }}</td>
+                <td>{{ message[2] }}</td>
+                <td>{{ message[3] }}</td>
+                <td>{{ message[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

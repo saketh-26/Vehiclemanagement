@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanic Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url('https://img.freepik.com/free-vector/abstract-digital-grid-vector-black-background_53876-111550.jpg'); /* Add your background image path here */
+            background-size: cover;
+            background-position: center;
+            color: white; /* Change text color for better visibility */
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: rgba(19, 7, 7, 0.1); /* Adjust background color opacity */
+            padding: 20px;
+            border-radius: 5px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .mechanic-info {
+            margin-bottom: 20px;
+        }
+        .mechanic-info label {
+            margin-left: 40%;
+            font-weight: bold;
+            display: inline-block;
+            width: 150px; /* Adjust label width as needed */
+        }
+        .mechanic-info p {
+            
+            margin: 5px 0;
+            display: inline-block;
+            width: calc(100% - 150px); /* Adjust width to fit remaining space after label */
+            vertical-align: top;
+            margin-left: 60%;
+        }
+        .logout-btn {
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff; /* Button color */
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+        }
+        .logout-btn:hover {
+            background-color: #e2e8ed; /* Button hover color */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Mechanic Dashboard</h2>
+    <div class="mechanic-info">
+        {% for request in view %}
+            <label for="mechanic_id">Mechanic ID:</label>
+            <p>{{ request[0] }}</p><br>
+
+            <label for="name">Name:</label>
+            <p>{{ request[1] }}</p><br>
+
+            <label for="email">Mechanic Email:</label>
+            <p>{{ request[3] }}</p><br>
+
+            <label for="phone_number">Mechanic Phone Number:</label>
+            <p>{{ request[4] }}</p><br>
+
+            <label for="address">Address:</label>
+            <p>{{ request[5] }}</p><br>
+
+            <label for="skills">Skills:</label>
+            <p>{{ request[6] }}</p><br>
+
+            <label for="status">Status:</label>
+            <p>{{ request[7] }}</p><br>
+        {% endfor %}
+    </div>
+    <a href="{{url_for('mlogout')}}" class="logout-btn">Logout</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanic Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-image: url('https://www.go.ooo/img/bg-img/Login.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgba(73, 70, 70, 0.8); /* Add opacity to the background color */
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: aliceblue;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+
+<div class="container">
+    <h2>Mechanic Login</h2>
+    <form action="#" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="id1" name="id1" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <a href="{{url_for('mregistration')}}">mechanic Sign up</a></p><br/>
+        <button type="submit">Login</button>
+    </form>
+    <a href="{{url_for('mregistration')}}">don't you have an account</a>
+    <a href="{{url_for('mforgot')}}">forgot password</a>
+</div>
+
+</body>
+</html>

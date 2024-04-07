@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pending mechanic application  Requests</title>
+</head>
+<style><style>body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url('your_background_image.jpg'); /* Add your background image path here */
+    background-size: cover;
+    background-position: center;
+    color: rgb(11, 10, 10); /* Change text color for better visibility */
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid white;
+}
+
+th {
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust background color opacity */
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1); /* Adjust background color opacity */
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+select, input[type="number"] {
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1); /* Adjust background color opacity */
+    color: rgb(21, 19, 19);
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Button color */
+    color: rgb(13, 12, 12);
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3; /* Button hover color */
+}
+
+p {
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
+    font-size: 36px;
+    color: red;
+}
+</style>
+
+</style>
+
+<body>
+    <h2>Pending mechanic application  Requests</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>mechanic ID</th>
+                <th> Name</th>
+                <th>mechanic email</td>
+                <th>mechanic phone_number</td>
+                <th>address</th>
+                <th>skills</th>
+                <th>status</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% if requests %}
+            {% for request in requests %}
+            <tr>
+                <td>{{ request[0] }}</td>
+                <td>{{ request[1] }}</td>
+                <td>{{ request[3] }}</td>
+                <td>{{ request[4] }}</td>
+                <td>{{ request[5] }}</td>
+                <td>{{ request[6] }}</td>
+                
+                <td>
+                    <form action="{{ url_for('update_job', request_id=request[0]) }}" method="POST">
+                        <select name="status">
+                            <option value="approved">Accept</option>
+                            <option value="rejected">Reject</option>
+                            <option value="pending" selected>Pending</option> <!-- Default to the current status -->
+                        </select>
+                        <button type="submit">Update Status</button>
+                    </form>
+                    
+                </td>
+               
+            </tr>
+            {% endfor %}
+            {% else %}
+            <p>no pending requests </p>
+            {% endif %}
+        </tbody>
+    </table>
+</body>
+</html>
